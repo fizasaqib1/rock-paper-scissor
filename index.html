@@ -1,0 +1,124 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <title>Game1</title>
+  </head>
+  <body>
+    <div id="start">
+    <h1>Hello!
+    </h1>
+    <h1>Welcome to the game.</h1>
+    <h2>Please enter the name to play.</h2>
+    <input id="nname" type="text"  placeholder="enter your name">
+    <input class="btn" onclick="
+   ssubmit();
+    " type="submit" value="Submit">
+<p id="hello"> 
+</p>
+
+
+</div>
+<div id="game">
+    <h1>Rock paper scissor</h1>
+    <h2>choose one:</h2>
+      <button onclick="
+     
+     play('rock');
+  
+      "> <img src="rock (2).png"" alt="aa"></button>
+      
+
+      <button  onclick="
+      play('paper');
+
+      " ><img src="paper.png" alt="xx"></button>
+
+      <button  onclick="
+      play('scissor');
+    
+      "><img src="scissor.png" alt="xx"></button>
+<p id="kk"></p>
+</div>
+<script>
+function ssubmit(){
+   var name = document.getElementById('nname').value;
+   if(name!==""){
+    document.getElementById('hello').innerText = "Hello" + 'nname';
+    
+    document.getElementById('start').style.display= 'none';
+    document.getElementById('game').style.display= 'block';
+    
+  }
+  else{
+     document.getElementById('hello').innerText = alert('please enter your name');
+
+   }
+
+}
+
+  function play(move) {
+
+
+    const computerMove= computer();
+    let results = '';
+      
+      if(move=== 'paper'){
+      if(computerMove=='rock'){
+        results= 'You won';
+      }
+      if(computerMove=='paper'){
+        results= 'Tie';
+      }
+      if(computerMove=='scissor'){
+        results= 'You lose';
+      }
+    }
+    else if(move==='scissor'){
+      
+      if(computerMove=='rock'){
+        results= 'You won';
+      }
+      if(computerMove=='paper'){
+        results= 'You lose';
+      }
+      if(computerMove=='scissor'){
+        results= 'Tie';
+      }
+    }
+    else if(move==='rock'){
+      
+      if(computerMove=='rock'){
+        results= 'tie';
+      }
+      if(computerMove=='paper'){
+        results= 'You lose';
+      }
+      if(computerMove=='scissor'){
+        results= 'You won';
+      }
+    }
+     document.getElementById('kk').innerText=(`You picked ${move}. Computer picked ${computerMove}. ${results} 
+      `);
+  }
+    function computer(){
+
+      let computerMove='';
+    
+    const randomNumber= Math.random();
+      if(randomNumber>=0 && randomNumber <1/3){
+        computerMove = 'rock';
+      }
+      else if( randomNumber>=1/3 && randomNumber< 2/3){
+        computerMove = 'scissor';
+      }
+      else if( randomNumber>= 2/3 && randomNumber<1){
+        computerMove= 'paper';
+      }
+return computerMove;  
+  }
+</script>
+  </body>
+  </html>
